@@ -21,5 +21,10 @@ class UserService(private val userRepository: UserRepository) {
         return UserMapper.run { user.toResponse() }
     }
 
+    fun getUsers(): List<UsersResponse> {
+        val users = userRepository.findAll()
+        return users.map { UserMapper.run { it.toNewResponse() } }
+    }
+
 }
 

@@ -3,6 +3,7 @@ package com.amanalli.api.controller
 import com.amanalli.api.domain.user.CreateUserRequest
 import com.amanalli.api.domain.user.CreateUserResponse
 import com.amanalli.api.domain.user.UserService
+import com.amanalli.api.domain.user.UsersResponse
 import jakarta.transaction.Transactional
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
@@ -34,4 +35,11 @@ class UserController(private val userService: UserService) {
         val response = userService.getUserById(id)
         return ResponseEntity.ok(response)
     }
+
+    @GetMapping
+    fun getUsers(): ResponseEntity<List<UsersResponse>> {
+        val usersResponse = userService.getUsers()
+        return ResponseEntity.ok(usersResponse)
+    }
+
 }

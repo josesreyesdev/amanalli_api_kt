@@ -19,4 +19,16 @@ object UserMapper {
         phoneNumber = this.phoneNumber,
         email = this.email
     )
+
+    fun User.toNewResponse(): UsersResponse {
+        return UsersResponse(
+            id = this.id ?: 0,
+            fullName = this.fullName,
+            phoneNumber = this.phoneNumber,
+            email = this.email,
+            active = this.active,
+            createdAt = this.createdAt,
+            updatedAt = this.updatedAt
+        )
+    }
 }
