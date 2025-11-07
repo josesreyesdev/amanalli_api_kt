@@ -1,0 +1,19 @@
+spring:
+  application:
+  name: api
+
+  # DB configuration
+  datasource:
+    url: jdbc:postgresql://${HOST}/amanalli_db
+    username: ${USER_POSTGRESQL}
+    password: ${PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format-sql: true
+    show-sql: true
+
+server:
+  port: 8081
